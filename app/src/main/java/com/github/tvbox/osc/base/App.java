@@ -128,13 +128,10 @@ public class App extends MultiDexApplication {
 //        putDefault(HawkConfig.LIVE_CROSS_GROUP, 1);   	 //直播：跨选分类 0=否 ,1=是
 //        putDefault(HawkConfig.LIVE_CHANNEL_REVERSE, 0);    //直播：换台反转 0= 否 ,1=是
 
-		ArrayList<String> history = new ArrayList<String>();
-			history.add("https://kakixf.github.io/static/json/tvbox.json");
-			history.add("https://kakixf.github.io/static/json/xiaoya.json");
-			history.add("https://kakixf.github.io/static/json/feimao.json");
-			history.add("https://kakixf.github.io/static/json/meotv.json");
-        putDefault(HawkConfig.API_HISTORY, history);// 历史配置地址列表
-
+	ArrayList<String> api_history = new ArrayList<String>(Arrays.asList(getResources().getStringArray(R.array.default_api_history)));
+        putDefault(HawkConfig.API_HISTORY, api_history);  // 接口历史记录
+        putDefault(HawkConfig.API_URL, "https://jihulab.com/clear1/yingmi/-/raw/main/xh.txt");  // 接口历史记录
+        putDefault(HawkConfig.EPG_URL, "https://epg.112114.xyz/");  // 接口历史记录
     }
 
     private void initLocale() {
